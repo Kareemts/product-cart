@@ -15,6 +15,8 @@ const addUser = async (req, res, next) => {
 };
 
 // Product Management
+
+// adding new product
 const addProduct = async (req, res, next) => {
   try {
     const porduct = await product.create(req.body);
@@ -81,8 +83,10 @@ const viewCart = async (req, res, next) => {
       })
       .populate("productId");
 
+    console.log(viewPeoducts.length);
+
     // handiling the empty cart
-    if (viewPeoducts.length < 0) {
+    if (viewPeoducts.length === 0) {
       return res.status(200).json({
         status: true,
         data: {
