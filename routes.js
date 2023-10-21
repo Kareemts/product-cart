@@ -4,6 +4,8 @@ const {
   getAllProducts,
   addTocart,
   viewCart,
+  removeItem,
+  totalPrice,
 } = require("./controller");
 
 const router = require("express").Router();
@@ -23,5 +25,11 @@ router.post("/addTocart", addTocart);
 
 // View Cart
 router.get("/viewCart/:id", viewCart);
+
+// Remove Item from Cart
+router.delete("/removeItem/:id", removeItem);
+
+// Calculate Total Price
+router.get("/totalPrice/:id", totalPrice);
 
 module.exports = router;
