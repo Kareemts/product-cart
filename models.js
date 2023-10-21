@@ -2,10 +2,18 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
-const user_Schema = new mongoose.Schema({
+const product_Schema = new mongoose.Schema({
   name: String,
-  email: String,
+  price: Number,
+  availableQuantity: Number,
 });
-const user_data = mongoose.model("User", user_Schema);
+const product = mongoose.model("Product", product_Schema);
 
-module.exports = { user_data };
+const cart_Schema = new mongoose.Schema({
+  name: String,
+  price: Number,
+  availableQuantity: Number,
+});
+const cart = mongoose.model("Cart", cart_Schema);
+
+module.exports = { product, cart };

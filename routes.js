@@ -1,16 +1,19 @@
-const { user_data } = require("./models");
+const { addProduct, getAllProducts, addTocart } = require("./controller");
 
 const router = require("express").Router();
 
-// router.get("/users", getUsers);
+// Product Management
 
-router.get("/user", async (req, res, next) => {
-  const data = await user_data.find();
-  console.log(data);
-  return res.status(200).json({
-    status: true,
-    data,
-  });
-});
+// router for creating new product
+
+router.post("/addProduct", addProduct);
+
+// router for view all products
+
+router.get("/getAllProducts", getAllProducts);
+
+// Add Product to Cart
+
+router.get("/addTocart", addTocart);
 
 module.exports = router;
